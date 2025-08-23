@@ -1,0 +1,168 @@
+import React from 'react'
+import GradientRectangle from '../components/GradientRectangle'
+import GradientArrow from '../components/GradientArrow'
+
+const Roadmap: React.FC = () => {
+  const steps = [
+    {
+      number: '01',
+      title: '映像授業',
+      description: '見返せるオンデマンド授業で、体系的に学習',
+      icon: '/step1-icon.svg'
+    },
+    {
+      number: '02',
+      title: 'LIVE授業によるハンズオン',
+      description: 'ハンズオン形式で構築演習を実施',
+      icon: '/step2-icon.svg'
+    },
+    {
+      number: '03',
+      title: '模擬案件で学ぶ',
+      description: '実務そのままの構成を想定したシステム構築',
+      icon: '/step3-icon.svg'
+    }
+  ]
+
+  return (
+    <section className="relative bg-[#F5F6FC] py-12 md:py-20 overflow-visible">
+      <div className="max-w-7xl mx-auto px-4 overflow-visible">
+        {/* モバイル版レイアウト */}
+        <div className="md:hidden relative mb-12 flex flex-col items-center justify-center gap-3">
+          <GradientRectangle className="w-32 h-6" />
+          <h2 className="text-2xl font-bold text-center px-2 leading-relaxed" style={{ letterSpacing: '0.1em' }}>
+            最短<span className="text-3xl mx-1" style={{ color: '#2911E2' }}>2ヶ月</span>で
+            <br />
+            即戦力クラウドエンジニアへ
+          </h2>
+          <GradientArrow className="w-32 h-6" />
+        </div>
+
+        {/* PC版レイアウト */}
+        <div className="hidden md:block relative mb-16 pb-4">
+          <div className="flex items-center justify-center gap-5 w-full max-w-6xl mx-auto">
+            <GradientRectangle className="w-72 h-10 flex-shrink-0" />
+            <h2 className="text-3xl font-bold text-center px-4 leading-relaxed" style={{ letterSpacing: '0.2em' }}>
+              最短<span className="text-4xl mx-2" style={{ color: '#2911E2' }}>2ヶ月</span>で
+              <br />
+              即戦力クラウドエンジニアへ
+            </h2>
+            <GradientArrow className="w-72 h-10 flex-shrink-0" />
+          </div>
+        </div>
+
+        {/* モバイル版: グリッド表示 */}
+        <div className="grid grid-cols-1 gap-8 md:hidden">
+          {steps.map((step) => (
+            <div key={step.number} className="relative">
+              <div className="relative">
+                <div className="absolute -top-6 left-3 text-3xl font-bold z-10" style={{ color: '#2911E2' }}>
+                  {step.number}
+                </div>
+                
+                <div className="bg-white rounded-2xl overflow-hidden w-72">
+                  <div className="flex items-center justify-center p-3">
+                    <div className="w-36 h-36">
+                      {step.number === '01' && (
+                        <img 
+                          src="/roadmap/Telecommuting-rafiki.png" 
+                          alt="映像授業" 
+                          className="w-full h-full object-contain"
+                        />
+                      )}
+                      {step.number === '02' && (
+                        <img 
+                          src="/roadmap/Marketing consulting-amico.png" 
+                          alt="LIVE授業" 
+                          className="w-full h-full object-contain"
+                        />
+                      )}
+                      {step.number === '03' && (
+                        <img 
+                          src="/roadmap/Admin-rafiki.png" 
+                          alt="模擬案件" 
+                          className="w-full h-full object-contain"
+                        />
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="px-2 mt-6 text-center">
+                <h3 className="text-lg font-bold mb-2 bg-[linear-gradient(135deg,_#0575E6_0%,_#021B79_100%)] bg-clip-text text-transparen">
+                  {step.title}
+                </h3>
+                
+                <p className="text-sm text-gray-700 whitespace-pre-line leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* PC版: フレックス表示（カード + × + カード + × + カード） */}
+        <div className="hidden md:flex items-start justify-between gap-2 w-full max-w-6xl mx-auto">
+          {steps.map((step, index) => (
+            <React.Fragment key={step.number}>
+              <div className="relative">
+                <div className="relative">
+                  <div className="absolute -top-6 left-3 text-4xl font-bold z-10" style={{ color: '#2911E2' }}>
+                    {step.number}
+                  </div>
+                  
+                  <div className="bg-white rounded-2xl overflow-hidden w-80">
+                    <div className="flex items-center justify-center p-4">
+                      <div className="w-48 h-52">
+                        {step.number === '01' && (
+                          <img 
+                            src="/roadmap/Telecommuting-rafiki.png" 
+                            alt="映像授業" 
+                            className="w-full h-full object-contain"
+                          />
+                        )}
+                        {step.number === '02' && (
+                          <img 
+                            src="/roadmap/Marketing consulting-amico.png" 
+                            alt="LIVE授業" 
+                            className="w-full h-full object-contain"
+                          />
+                        )}
+                        {step.number === '03' && (
+                          <img 
+                            src="/roadmap/Admin-rafiki.png" 
+                            alt="模擬案件" 
+                            className="w-full h-full object-contain"
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="px-2 mt-6 text-center">
+                  <h3 className="text-2xl font-bold mb-2 bg-[linear-gradient(135deg,_#0575E6_0%,_#021B79_100%)] bg-clip-text text-transparent">
+                    {step.title}
+                  </h3>
+                  
+                  <p className="text-base text-gray-700 whitespace-pre-line leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+              
+              {index < steps.length - 1 && (
+                <div className="flex items-center h-64 text-3xl text-black">
+                  ×
+                </div>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Roadmap
