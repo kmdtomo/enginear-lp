@@ -12,11 +12,6 @@
   --color-yellow: #F5E537;
   --color-button: #00C300;
 
-  /* Breakpoints (use variants: sp:, tab:, pc:) */
-  --breakpoint-sp: 768px;
-  --breakpoint-tab: 1024px;
-  --breakpoint-pc: 1025px;
-
   /* Gradients (use: bg-[--gradient-main]) */
   --gradient-main: linear-gradient(135deg, #0575E6 0%, #021B79 100%);
   --gradient-sub: linear-gradient(135deg, #FC4A1A 0%, #FFAC00 100%);
@@ -30,7 +25,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #F5F6FC;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -85,7 +80,7 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #F5F6FC;
   }
   a:hover {
     color: #747bff;
