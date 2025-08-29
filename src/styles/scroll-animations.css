@@ -1,0 +1,163 @@
+/* スクロールアニメーション用のベースクラス */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 左右からのフェードイン */
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-left.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 左から大きくスライドイン */
+.slide-in-from-left {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-in-from-left.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 右から大きくスライドイン */
+.slide-from-right {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-from-right.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-right.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* スケールアニメーション */
+.scale-in {
+  opacity: 0;
+  transform: scale(0.9) translateY(20px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scale-in.in-view {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* スタガーアニメーション（順番に表示）用 */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.stagger-item.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* 4方向からのアニメーション */
+.slide-from-top-left {
+  opacity: 0;
+  transform: translate(-50px, -50px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-from-top-right {
+  opacity: 0;
+  transform: translate(50px, -50px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-from-bottom-left {
+  opacity: 0;
+  transform: translate(-50px, 50px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-from-bottom-right {
+  opacity: 0;
+  transform: translate(50px, 50px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-from-top-left.in-view,
+.slide-from-top-right.in-view,
+.slide-from-bottom-left.in-view,
+.slide-from-bottom-right.in-view {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ダイナミックな下からのアニメーション（バウンス効果付き） */
+.dynamic-bounce-up {
+  opacity: 0;
+  transform: translateY(80px) scale(0.9);
+  transition: opacity 1.2s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dynamic-bounce-up.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* 数値カウントアップ風アニメーション */
+@keyframes countUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.number-animate {
+  animation: countUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* 遅延クラス */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+.delay-600 { transition-delay: 0.6s; }
+.delay-700 { transition-delay: 0.7s; }
+.delay-800 { transition-delay: 0.8s; }

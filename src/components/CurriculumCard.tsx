@@ -1,4 +1,5 @@
 import React from 'react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 interface CurriculumCardProps {
   type: string
@@ -8,6 +9,7 @@ interface CurriculumCardProps {
   gradient?: string
   buttonText?: string
   accentColor?: string
+  delay?: number
 }
 
 const CurriculumCard: React.FC<CurriculumCardProps> = ({ 
@@ -17,11 +19,19 @@ const CurriculumCard: React.FC<CurriculumCardProps> = ({
   items, 
   gradient = 'linear-gradient(135deg, #0575E6 0%, #021B79 100%)',
   buttonText = 'ハンズオン実践',
-  accentColor = '#2911E2'
+  accentColor = '#2911E2',
+  delay = 0
 }) => {
+  const { ref, isInView } = useScrollAnimation({ threshold: 0.2 })
   
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden relative" style={{ borderTopLeftRadius: '0' }}>
+    <div 
+      ref={ref}
+      className={`scale-in ${isInView ? 'in-view' : ''} bg-white rounded-lg shadow-lg overflow-hidden relative`} 
+      style={{ 
+        borderTopLeftRadius: '0',
+        transitionDelay: `${delay}ms`
+      }}>
       {/* ヘッダー - 斜めのデザイン */}
       <div className="relative h-12 md:h-14 -mx-[1px] -mt-[1px]">
         <div 

@@ -1,11 +1,14 @@
 import React from 'react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const Flow: React.FC = () => {
+  const { ref: titleRef, isInView: isTitleInView } = useScrollAnimation({ threshold: 0.3, rootMargin: '-50px' })
+  const { ref: flowRef, isInView: isFlowInView } = useScrollAnimation({ threshold: 0.2, rootMargin: '-100px' })
   return (
-    <section className="py-12 md:py-12" style={{ backgroundColor: '#F5F6FC' }}>
+    <section id="flow" className="py-12 md:py-12" style={{ backgroundColor: '#F5F6FC' }}>
       <div className="max-w-[1250px] mx-auto px-4">
         {/* タイトル */}
-        <div className="text-center mb-16">
+        <div ref={titleRef} className={`fade-in-up ${isTitleInView ? 'in-view' : ''} text-center mb-16`}>
           <h2 className="text-3xl md:text-4xl font-bold mb-2">
             受講までの流れ
           </h2>
@@ -13,9 +16,9 @@ const Flow: React.FC = () => {
         </div>
         
         {/* フローステップ */}
-        <div className="grid md:grid-cols-4 gap-2 md:gap-4 w-full mx-auto">
+        <div ref={flowRef} className="grid md:grid-cols-4 gap-2 md:gap-4 w-full mx-auto">
           {/* ステップ1 */}
-          <div className="flex flex-col items-center">
+          <div className={`stagger-item ${isFlowInView ? 'in-view' : ''} flex flex-col items-center`}>
             <div className="relative">
               <div className="absolute -top-6 left-3 text-5xl font-bold z-10" style={{ color: '#2911E2' }}>
                 1
@@ -37,7 +40,7 @@ const Flow: React.FC = () => {
               <h3 className="text-xl font-bold mb-4" style={{ color: '#2911E2', letterSpacing: '0.15rem' }}>
                 無料相談申し込み
               </h3>
-              <a href="#contact" className="inline-flex items-center gap-2 bg-[#00C300] text-white rounded-full px-6 py-2.5 shadow text-sm font-bold hover:opacity-90 transition-opacity">
+              <a href="#contact" className="inline-flex items-center gap-2 bg-[#00C300] text-white rounded-full px-6 py-2.5 shadow text-sm font-bold hover:opacity-90 transition-all hover:scale-95">
                 <span className="text-white" style={{ letterSpacing: '0.15rem' }}>無料相談を予約する</span>
               </a>
               <p className="mt-3 text-sm text-black">
@@ -47,7 +50,7 @@ const Flow: React.FC = () => {
           </div>
           
           {/* ステップ2 */}
-          <div className="flex flex-col items-center">
+          <div className={`stagger-item ${isFlowInView ? 'in-view' : ''} flex flex-col items-center delay-300`}>
             <div className="relative">
               <div className="absolute -top-6 left-3 text-5xl font-bold z-10" style={{ color: '#2911E2' }}>
                 2
@@ -82,7 +85,7 @@ const Flow: React.FC = () => {
           </div>
           
           {/* ステップ3 */}
-          <div className="flex flex-col items-center">
+          <div className={`stagger-item ${isFlowInView ? 'in-view' : ''} flex flex-col items-center delay-600`}>
             <div className="relative">
               <div className="absolute -top-6 left-3 text-5xl font-bold z-10" style={{ color: '#2911E2' }}>
                 3
@@ -104,7 +107,7 @@ const Flow: React.FC = () => {
               <h3 className="text-xl font-bold mb-4" style={{ color: '#2911E2', letterSpacing: '0.15rem' }}>
                 受講申し込み
               </h3>
-              <a href="#contact" className="inline-flex items-center gap-2 bg-[#00C300] text-white rounded-full px-6 py-2.5 shadow text-sm font-bold hover:opacity-90 transition-opacity">
+              <a href="#contact" className="inline-flex items-center gap-2 bg-[#00C300] text-white rounded-full px-6 py-2.5 shadow text-sm font-bold hover:opacity-90 transition-all hover:scale-95">
                 <span className="text-white" style={{ letterSpacing: '0.15rem' }}>コースに申し込む</span>
               </a>
               <p className="mt-3 text-sm text-black">
@@ -117,7 +120,7 @@ const Flow: React.FC = () => {
           </div>
           
           {/* ステップ4 */}
-          <div className="flex flex-col items-center">
+          <div className={`stagger-item ${isFlowInView ? 'in-view' : ''} flex flex-col items-center`} style={{ transitionDelay: '0.9s' }}>
             <div className="relative">
               <div className="absolute -top-6 left-3 text-5xl font-bold z-10" style={{ color: '#2911E2' }}>
                 4

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 interface FeatureCardProps {
   number: string
@@ -6,6 +7,7 @@ interface FeatureCardProps {
   description: string | React.ReactNode
   image: string
   imageAlt?: string
+  delay?: number
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ 
@@ -13,10 +15,16 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   title, 
   description, 
   image, 
-  imageAlt = "" 
+  imageAlt = "",
+  delay = 0
 }) => {
+  const { ref, isInView } = useScrollAnimation({ threshold: 0.2 })
   return (
-    <div className="bg-white rounded-lg overflow-hidden px-2">
+    <div 
+      ref={ref}
+      className={`fade-in-up ${isInView ? 'in-view' : ''} bg-white rounded-lg overflow-hidden px-2`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
       <div className="grid grid-cols-10">
         {/* 左側 - 画像 (3) */}
         <div className="col-span-3 flex items-center justify-center p-4">

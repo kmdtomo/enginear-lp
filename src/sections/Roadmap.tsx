@@ -1,8 +1,11 @@
 import React from 'react'
 import GradientRectangle from '../components/GradientRectangle'
 import GradientArrow from '../components/GradientArrow'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const Roadmap: React.FC = () => {
+  const { ref: titleRef, isInView: isTitleInView } = useScrollAnimation({ threshold: 0.2 })
+  const { ref: cardsRef, isInView: isCardsInView } = useScrollAnimation({ threshold: 0.1 })
   const steps = [
     {
       number: '01',
@@ -28,7 +31,10 @@ const Roadmap: React.FC = () => {
     <section className="relative bg-[#F5F6FC] py-12 md:py-20 overflow-visible">
       <div className="max-w-7xl mx-auto px-4 overflow-visible">
         {/* モバイル版レイアウト */}
-        <div className="md:hidden relative mb-12 flex flex-col items-center justify-center gap-3">
+        <div 
+          ref={titleRef}
+          className={`slide-in-from-left ${isTitleInView ? 'in-view' : ''} md:hidden relative mb-12 flex flex-col items-center justify-center gap-3`}
+        >
           <GradientRectangle className="w-32 h-6" />
           <h2 className="text-2xl font-bold text-center px-2 leading-relaxed" style={{ letterSpacing: '0.1em' }}>
             最短<span className="text-3xl mx-1" style={{ color: '#2911E2' }}>2ヶ月</span>で
@@ -40,7 +46,10 @@ const Roadmap: React.FC = () => {
 
         {/* PC版レイアウト */}
         <div className="hidden md:block relative mb-16 pb-4">
-          <div className="flex items-center justify-center gap-5 w-full max-w-6xl mx-auto">
+          <div 
+            ref={titleRef}
+            className={`slide-in-from-left ${isTitleInView ? 'in-view' : ''} flex items-center justify-center gap-5 w-full max-w-6xl mx-auto`}
+          >
             <GradientRectangle className="w-72 h-10 flex-shrink-0" />
             <h2 className="text-3xl font-bold text-center px-4 leading-relaxed" style={{ letterSpacing: '0.2em' }}>
               最短<span className="text-4xl mx-2" style={{ color: '#2911E2' }}>2ヶ月</span>で
@@ -52,9 +61,16 @@ const Roadmap: React.FC = () => {
         </div>
 
         {/* モバイル版: グリッド表示 */}
-        <div className="grid grid-cols-1 gap-8 md:hidden">
-          {steps.map((step) => (
-            <div key={step.number} className="relative">
+        <div 
+          ref={cardsRef}
+          className="grid grid-cols-1 gap-8 md:hidden"
+        >
+          {steps.map((step, index) => (
+            <div 
+              key={step.number} 
+              className={`slide-in-from-left ${isCardsInView ? 'in-view' : ''} relative`}
+              style={{ transitionDelay: `${index * 200}ms` }}
+            >
               <div className="relative">
                 <div className="absolute -top-6 left-3 text-3xl font-bold z-10" style={{ color: '#2911E2' }}>
                   {step.number}
@@ -103,10 +119,16 @@ const Roadmap: React.FC = () => {
         </div>
 
         {/* PC版: フレックス表示（カード + × + カード + × + カード） */}
-        <div className="hidden md:flex items-start justify-between gap-2 w-full max-w-6xl mx-auto">
+        <div 
+          ref={cardsRef}
+          className="hidden md:flex items-start justify-between gap-2 w-full max-w-6xl mx-auto"
+        >
           {steps.map((step, index) => (
             <React.Fragment key={step.number}>
-              <div className="relative">
+              <div 
+                className={`slide-in-from-left ${isCardsInView ? 'in-view' : ''} relative`}
+                style={{ transitionDelay: `${index * 300}ms` }}
+              >
                 <div className="relative">
                   <div className="absolute -top-6 left-3 text-4xl font-bold z-10" style={{ color: '#2911E2' }}>
                     {step.number}
@@ -153,7 +175,10 @@ const Roadmap: React.FC = () => {
               </div>
               
               {index < steps.length - 1 && (
-                <div className="flex items-center h-64 text-3xl text-black">
+                <div 
+                  className={`slide-in-from-left ${isCardsInView ? 'in-view' : ''} flex items-center h-64 text-3xl text-black`}
+                  style={{ transitionDelay: `${(index * 300) + 150}ms` }}
+                >
                   ×
                 </div>
               )}

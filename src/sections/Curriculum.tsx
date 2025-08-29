@@ -22,7 +22,7 @@ const Curriculum: React.FC = () => {
   ]
   
   return (
-    <section className="py-12 md:pt-20 md:mt-40 z-10" style={{ backgroundColor: '#F5F6FC' }}>
+    <section id="curriculum" className="py-12 md:pt-20 md:mt-40 z-10" style={{ backgroundColor: '#F5F6FC' }}>
       <div className="max-w-6xl mx-auto px-4">
         {/* タイトル */}
         <h2 className="text-center text-3xl md:text-4xl font-bold mb-20">
@@ -49,12 +49,12 @@ const Curriculum: React.FC = () => {
           />
         </div>
         
-        {/* 装飾画像 */}
+        {/* 装飾画像（下方向に小さくバウンス） */}
         <div className="flex justify-center mt-4">
           <img 
             src="/curriculum/Group 298.png" 
             alt="装飾" 
-            className="w-20 h-20 md:w-20 md:h-20"
+            className="w-20 h-20 md:w-20 md:h-20 arrow-bounce-down"
           />
         </div>
       </div>

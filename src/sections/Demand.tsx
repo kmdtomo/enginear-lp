@@ -1,6 +1,10 @@
 import React from 'react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const Demand: React.FC = () => {
+  const { ref: titleRef, isInView: isTitleInView } = useScrollAnimation({ threshold: 0.3 })
+  const { ref: statsRef, isInView: isStatsInView } = useScrollAnimation({ threshold: 0.1, rootMargin: '-50px' })
+  const { ref: mobileStatsRef, isInView: isMobileStatsInView } = useScrollAnimation({ threshold: 0.1 })
   const stats = [
     {
       label: '求人倍率',
@@ -29,13 +33,13 @@ const Demand: React.FC = () => {
         {/* 見出し部分 */}
         <div className="mb-12 md:mb-16 text-center">
           {/* グラデーション背景の見出し - 縦並び */}
-          <div className="flex flex-col items-center gap-6">
-            <div className="bg-[linear-gradient(135deg,_#0575E6_0%,_#021B79_100%)] px-6 py-3 md:px-5 md:py-3">
+          <div ref={titleRef} className="flex flex-col items-center gap-6">
+            <div className={`fade-in-up ${isTitleInView ? 'in-view' : ''} bg-[linear-gradient(135deg,_#0575E6_0%,_#021B79_100%)] px-6 py-3 md:px-5 md:py-3`}>
               <h2 className="text-xl md:text-xl font-medium text-white" style={{ letterSpacing: '0.2em' }}>
                 クラウド移行の加速によって
               </h2>
             </div>
-            <div className="bg-[linear-gradient(135deg,_#0575E6_0%,_#021B79_100%)] px-6 py-3 md:px-6 md:py-3">
+            <div className={`fade-in-up ${isTitleInView ? 'in-view' : ''} bg-[linear-gradient(135deg,_#0575E6_0%,_#021B79_100%)] px-6 py-3 md:px-6 md:py-3 delay-200`}>
               <h2 className="text-xl md:text-2xl font-bold text-white" style={{ letterSpacing: '0.2em' }}>
                 AWSエンジニアの需要が急増中
               </h2>
@@ -44,9 +48,9 @@ const Demand: React.FC = () => {
         </div>
 
         {/* 統計部分 - モバイル版 */}
-        <div className="md:hidden space-y-8">
+        <div ref={mobileStatsRef} className="md:hidden space-y-8">
           {stats.map((stat, index) => (
-            <div key={index} className="text-left">
+            <div key={index} className={`fade-in-up ${isMobileStatsInView ? 'in-view' : ''} text-left`} style={{ transitionDelay: `${index * 200}ms` }}>
               <p className="text-sm font-medium mb-2" style={{ color: '#2911E2' }}>
                 {stat.label}
               </p>
@@ -71,9 +75,9 @@ const Demand: React.FC = () => {
         </div>
 
         {/* 統計部分 - PC版 */}
-        <div className="hidden md:flex md:items-start md:justify-center md:gap-12">
+        <div ref={statsRef} className="hidden md:flex md:items-start md:justify-center md:gap-12">
           {/* 求人倍率 */}
-          <div className="text-left">
+          <div className={`scale-in ${isStatsInView ? 'in-view' : ''} text-left`}>
             <p className="text-lg font-medium mb-3" style={{ color: '#2911E2' }}>
               {stats[0].label}
             </p>
@@ -101,7 +105,7 @@ const Demand: React.FC = () => {
           </div>
           
           {/* AWS関連求人 */}
-          <div className="text-left">
+          <div className={`scale-in ${isStatsInView ? 'in-view' : ''} text-left delay-300`}>
             <p className="text-lg font-medium mb-3" style={{ color: '#2911E2' }}>
               {stats[1].label}
             </p>
@@ -129,7 +133,7 @@ const Demand: React.FC = () => {
           </div>
           
           {/* 平均年収 */}
-          <div className="text-left">
+          <div className={`scale-in ${isStatsInView ? 'in-view' : ''} text-left delay-600`}>
             <p className="text-lg font-medium mb-3" style={{ color: '#2911E2' }}>
               {stats[2].label}
             </p>
