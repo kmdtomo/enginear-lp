@@ -1,9 +1,12 @@
 import React from 'react'
 import FeatureCard from '../components/FeatureCard'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const Feature: React.FC = () => {
+  const { ref: titleRef, isInView: isTitleInView } = useScrollAnimation({ threshold: 0.2 })
+  const { ref: textRef, isInView: isTextInView } = useScrollAnimation({ threshold: 0.2 })
   return (
-    <section className="relative -mt-20 md:-mt-20 z-10">
+    <section id="features" className="relative -mt-20 md:-mt-20 z-10">
       {/* 円形の背景 */}
       <div className="absolute inset-x-0 -top-10 -bottom-10 md:-bottom-20 pointer-events-none">
         <div 
@@ -29,23 +32,26 @@ const Feature: React.FC = () => {
           
           <div className="text-center">
             {/* Enginearバブル */}
-            <div className="relative inline-block">
+            <div 
+              ref={titleRef}
+              className={`dynamic-bounce-up ${isTitleInView ? 'in-view' : ''} relative inline-block`}
+            >
               <div className="inline-flex items-center justify-center px-8 md:px-10 py-4 md:py-5 rounded-full" 
                    style={{ background: 'linear-gradient(135deg, #FC4A1A 0%, #FFAC00 100%)' }}>
-                <h2 className="text-white text-xl md:text-2xl font-bold" style={{ letterSpacing: '0.2rem' }}>
+                <h2 className="text-white text-xl md:text-3xl font-bold" style={{ letterSpacing: '0.2rem' }}>
                   Enginearにお任せください！
                 </h2>
               </div>
               {/* 下矢印 */}
               <div className="absolute left-1/2 -translate-x-1/2 -bottom-4">
-                <div className="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[16px]"
+                <div className="w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[16px]"
                      style={{ borderTopColor: '#FFAC00' }}></div>
               </div>
             </div>
           </div>
           
           {/* テキスト部分 */}
-          <div className="text-center mt-8 md:mt-12">
+          <div ref={textRef} className={`dynamic-bounce-up ${isTextInView ? 'in-view' : ''} text-center mt-8 md:mt-12`}>
             <p className="text-white text-base md:text-2xl font-bold" style={{ letterSpacing: '0.25rem' }}>
               私たちは今本当に求められるクラウド人材を育てるために
             </p>

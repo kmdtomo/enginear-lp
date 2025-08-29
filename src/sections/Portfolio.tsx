@@ -1,12 +1,18 @@
 import React from 'react'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const Portfolio: React.FC = () => {
+  const { ref: bannerRef, isInView: isBannerInView } = useScrollAnimation({ threshold: 0.1 })
+  const { ref: card1Ref, isInView: isCard1InView } = useScrollAnimation({ threshold: 0.1 })
+  const { ref: card2Ref, isInView: isCard2InView } = useScrollAnimation({ threshold: 0.1 })
+  const { ref: listRef, isInView: isListInView } = useScrollAnimation({ threshold: 0.2 })
   return (
     <section className="py-12 md:pb-20 md:-mt-10" style={{ backgroundColor: '#F5F6FC' }}>
       <div className="max-w-5xl mx-auto px-4">
         {/* メインバナー */}
         <div 
-          className="rounded-lg p-6 md:p-6 text-center text-white"
+          ref={bannerRef}
+          className={`scale-in ${isBannerInView ? 'in-view' : ''} rounded-lg p-6 md:p-6 text-center text-white`}
           style={{ 
             background: 'linear-gradient(135deg, #5433FF 0%, #0575E6 100%)'
           }}
@@ -20,7 +26,7 @@ const Portfolio: React.FC = () => {
         {/* コンテンツ部分 */}
         <div className="mt-12">
           {/* 実務レベルカード */}
-          <div className="max-w-5xl mx-auto flex justify-center ml-10">
+          <div ref={card1Ref} className={`slide-in-from-left ${isCard1InView ? 'in-view' : ''} max-w-5xl mx-auto flex justify-center ml-10`}>
             <div className="md:flex items-center">
               {/* 左側：テキストコンテンツ */}
               <div className="md:w-1/2 pt-8">
@@ -51,8 +57,8 @@ const Portfolio: React.FC = () => {
           </div>
           
           {/* 2つ目のカード - 左右入れ替え */}
-          <div className="max-w-5xl mx-auto flex justify-center mt-5 ml-20">
-            <div className="md:flex items-center">
+          <div ref={card2Ref} className="max-w-5xl mx-auto flex justify-center mt-5 ml-20">
+            <div className={`slide-from-right ${isCard2InView ? 'in-view' : ''} md:flex items-center`}>
               {/* 左側：画像 */}
               <div className="md:w-1/3 flex items-center justify-center">
                 <img 
@@ -71,20 +77,22 @@ const Portfolio: React.FC = () => {
                   className="h-0.5 w-full mb-5"
                   style={{ background: 'linear-gradient(135deg, #5433FF 0%, #0575E6 100%)' }}
                 />
-                <ul className="space-y-3 text-gray-700 text-base">
-                  <li className="flex items-center">
-                    <span className="mr-2 text-[10px]" style={{ color: '#2911E2' }}>●</span>
-                    <span>AWS認定 SAA 試験対策講座</span>
-                  </li>
-                  <li className="flex items-center">
-                    <span className="mr-2 text-[10px]" style={{ color: '#2911E2' }}>●</span>
-                    <span>試験範囲の復習＋模擬試験</span>
-                  </li>
-                  <li className="flex items-center">
-                    <span className="mr-2 text-[10px]" style={{ color: '#2911E2' }}>●</span>
-                    <span>ポートフォリオ最終化（GitHub提出形式・面接用資料）</span>
-                  </li>
-                </ul>
+                <div ref={listRef}>
+                  <ul className="space-y-3 text-gray-700 text-base">
+                    <li className={`fade-in-up ${isListInView ? 'in-view' : ''} flex items-center delay-100`}>
+                      <span className="mr-2 text-[10px]" style={{ color: '#2911E2' }}>●</span>
+                      <span>AWS認定 SAA 試験対策講座</span>
+                    </li>
+                    <li className={`fade-in-up ${isListInView ? 'in-view' : ''} flex items-center delay-200`}>
+                      <span className="mr-2 text-[10px]" style={{ color: '#2911E2' }}>●</span>
+                      <span>試験範囲の復習＋模擬試験</span>
+                    </li>
+                    <li className={`fade-in-up ${isListInView ? 'in-view' : ''} flex items-center delay-300`}>
+                      <span className="mr-2 text-[10px]" style={{ color: '#2911E2' }}>●</span>
+                      <span>ポートフォリオ最終化（GitHub提出形式・面接用資料）</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

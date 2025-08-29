@@ -1,7 +1,9 @@
 import React from 'react'
 import SpeechBubble from '../components/SpeechBubble'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const Challenge: React.FC = () => {
+  const { ref: bubblesRef, isInView } = useScrollAnimation({ threshold: 0.2 })
   return (
     <section className="relative bg-[#F5F6FC] py-12 md:py-20">
       <div className="max-w-7xl mx-auto px-4">
@@ -35,8 +37,8 @@ const Challenge: React.FC = () => {
               </div>
             </div>
             {/* モバイル版の吹き出し - 下に4つ並べる */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="flex justify-center">
+            <div ref={bubblesRef} className="grid grid-cols-2 gap-4">
+              <div className={`slide-from-top-left ${isInView ? 'in-view' : ''} flex justify-center`}>
                 <SpeechBubble className="px-8 py-4">
                   <div className="text-center font-medium text-black">
                     <p className="text-xs tracking-wide whitespace-nowrap">技術書読んでも</p>
@@ -44,7 +46,7 @@ const Challenge: React.FC = () => {
                   </div>
                 </SpeechBubble>
               </div>
-              <div className="flex justify-center">
+              <div className={`slide-from-top-right ${isInView ? 'in-view' : ''} flex justify-center`}>
                 <SpeechBubble className="px-8 py-4">
                   <div className="text-center font-medium text-black">
                     <p className="text-xs tracking-wide">忙しくて毎日勉強できないし、</p>
@@ -52,7 +54,7 @@ const Challenge: React.FC = () => {
                   </div>
                 </SpeechBubble>
               </div>
-              <div className="flex justify-center">
+              <div className={`slide-from-bottom-left ${isInView ? 'in-view' : ''} flex justify-center`}>
                 <SpeechBubble className="px-8 py-4">
                   <div className="text-center font-medium text-black">
                     <p className="text-xs tracking-wide">独学だと挫折しそうで</p>
@@ -60,7 +62,7 @@ const Challenge: React.FC = () => {
                   </div>
                 </SpeechBubble>
               </div>
-              <div className="flex justify-center">
+              <div className={`slide-from-bottom-right ${isInView ? 'in-view' : ''} flex justify-center`}>
                 <SpeechBubble className="px-8 py-4">
                   <div className="text-center font-medium text-black">
                     <p className="text-xs tracking-wide">自分とは違う分野だから、</p>
@@ -72,21 +74,25 @@ const Challenge: React.FC = () => {
           </div>
 
           {/* PC版レイアウト */}
-          <div className="hidden md:flex md:items-start md:justify-center md:gap-8">
+          <div ref={bubblesRef} className="hidden md:flex md:items-start md:justify-center md:gap-8">
             {/* 左側の吹き出し */}
             <div className="space-y-4 flex flex-col items-end">
-              <SpeechBubble className="px-14 py-4 mt-[-10px] mr-[-100px]">
-                <div className="text-center font-medium text-black">
-                  <p className="text-lg tracking-widest whitespace-nowrap">技術書読んでも</p>
-                  <p className="text-lg tracking-widest whitespace-nowrap">"実務で何をやるか"がわからない。</p>
-                </div>
-              </SpeechBubble>
-              <SpeechBubble className="px-14 py-4 mt-12 mr-[-40px]">
-                <div className="text-center font-medium text-black">
-                  <p className="text-lg tracking-widest whitespace-nowrap">独学だと挫折しそうで</p>
-                  <p className="text-lg tracking-widest whitespace-nowrap">続けられる自信がない</p>
-                </div>
-              </SpeechBubble>
+              <div className={`slide-from-top-left ${isInView ? 'in-view' : ''}`}>
+                <SpeechBubble className="px-14 py-4 mt-[-10px] mr-[-100px]">
+                  <div className="text-center font-medium text-black">
+                    <p className="text-lg tracking-widest whitespace-nowrap">技術書読んでも</p>
+                    <p className="text-lg tracking-widest whitespace-nowrap">"実務で何をやるか"がわからない。</p>
+                  </div>
+                </SpeechBubble>
+              </div>
+              <div className={`slide-from-bottom-left ${isInView ? 'in-view' : ''}`}>
+                <SpeechBubble className="px-14 py-4 mt-12 mr-[-40px]">
+                  <div className="text-center font-medium text-black">
+                    <p className="text-lg tracking-widest whitespace-nowrap">独学だと挫折しそうで</p>
+                    <p className="text-lg tracking-widest whitespace-nowrap">続けられる自信がない</p>
+                  </div>
+                </SpeechBubble>
+              </div>
             </div>
 
             {/* 中央のイラスト */}
@@ -102,18 +108,22 @@ const Challenge: React.FC = () => {
 
             {/* 右側の吹き出し */}
             <div className="space-y-4 flex flex-col items-start">
-              <SpeechBubble className="px-14 py-4 mt-4 ml-[-120px] mt-8">
-                <div className="text-center font-medium text-black">
-                  <p className="text-lg tracking-widest whitespace-nowrap">忙しくて毎日勉強できないし、</p>
-                  <p className="text-lg tracking-widest whitespace-nowrap">自分には無理かも</p>
-                </div>
-              </SpeechBubble>
-              <SpeechBubble className="px-14 py-4 mt-12 ml-[-80px]">
-                <div className="text-center font-medium text-black">
-                  <p className="text-lg tracking-widest whitespace-nowrap">自分とは違う分野だから、</p>
-                  <p className="text-lg tracking-widest whitespace-nowrap">一から学び直すのは気が引ける</p>
-                </div>
-              </SpeechBubble>
+              <div className={`slide-from-top-right ${isInView ? 'in-view' : ''}`}>
+                <SpeechBubble className="px-14 py-4 mt-4 ml-[-120px] mt-8">
+                  <div className="text-center font-medium text-black">
+                    <p className="text-lg tracking-widest whitespace-nowrap">忙しくて毎日勉強できないし、</p>
+                    <p className="text-lg tracking-widest whitespace-nowrap">自分には無理かも</p>
+                  </div>
+                </SpeechBubble>
+              </div>
+              <div className={`slide-from-bottom-right ${isInView ? 'in-view' : ''}`}>
+                <SpeechBubble className="px-14 py-4 mt-12 ml-[-80px]">
+                  <div className="text-center font-medium text-black">
+                    <p className="text-lg tracking-widest whitespace-nowrap">自分とは違う分野だから、</p>
+                    <p className="text-lg tracking-widest whitespace-nowrap">一から学び直すのは気が引ける</p>
+                  </div>
+                </SpeechBubble>
+              </div>
             </div>
           </div>
         </div>

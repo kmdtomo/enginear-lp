@@ -46,6 +46,7 @@ html, body, #root {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -85,9 +86,30 @@ button:focus-visible {
     background-color: #F5F6FC;
   }
   a:hover {
-    color: #747bff;
+    color: inherit;
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+/* Curriculum 下の矢印：小さく下方向にループ移動 */
+.arrow-bounce-down {
+  animation: arrowBounceDown 1.6s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes arrowBounceDown {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(10px) scale(0.96);
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.9;
   }
 }
