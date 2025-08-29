@@ -1,0 +1,65 @@
+import React from 'react'
+import CurriculumCard from '../components/CurriculumCard'
+
+const Curriculum: React.FC = () => {
+  const basicItems = [
+    'AWS の全体像と主要サービス',
+    'ネットワークサービス（VPC<span style="color: #2911E2; font-size: 0.8em">・</span>ルーティング etc）',
+    'コンピューティングサービス（EC2<span style="color: #2911E2; font-size: 0.8em">・</span>Lambda etc）',
+    'ストレージサービス（S3<span style="color: #2911E2; font-size: 0.8em">・</span>EBS<span style="color: #2911E2; font-size: 0.8em">・</span>EFS）',
+    'データベースサービス（RDS<span style="color: #2911E2; font-size: 0.8em">・</span>DynamoDB）'
+  ]
+  
+  const advancedItems = [
+    'コンテナ関連（Docker<span style="color: #F28130; font-size: 0.8em">・</span>ECS）',
+    'インフラ管理（CloudFormation<span style="color: #F28130; font-size: 0.8em">・</span>CodeDeploy）',
+    'コスト最適化（CostandUsage Report<span style="color: #F28130; font-size: 0.8em">・</span>Lambda）',
+    'セキュリティサービス（WAF<span style="color: #F28130; font-size: 0.8em">・</span>GuardDuty）',
+    'セキュリティサービス（AWS Shield）',
+    '高可用性アーキテクチャ（ALB）<span style="color: #F28130; font-size: 0.8em">・</span>マルチリージョン）',
+    'パフォーマンス<span style="color: #F28130; font-size: 0.8em">・</span>ステアリング設計',
+    'コスト最適化（特定用例<span style="color: #F28130; font-size: 0.8em">・</span>モニタリング）'
+  ]
+  
+  return (
+    <section className="py-12 md:pt-20 md:mt-40 z-10" style={{ backgroundColor: '#F5F6FC' }}>
+      <div className="max-w-6xl mx-auto px-4">
+        {/* タイトル */}
+        <h2 className="text-center text-3xl md:text-4xl font-bold mb-20">
+          実践を重視した<span style={{ color: '#2911E2' }}>カリキュラム内容</span>
+        </h2>
+        
+        {/* カリキュラムカード */}
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <CurriculumCard
+            type="基礎学習"
+            title='クラウドの<span style="color: #2911E2">”全体像”</span>を理解し、<br />インフラの基本を自分の手で操作'
+            subtitle=""
+            items={basicItems}
+            gradient="linear-gradient(135deg, #0575E6 0%, #021B79 100%)"
+          />
+          
+          <CurriculumCard
+            type="応用学習"
+            title='<span style="color: #F28130">”現場で使われる”</span>構成・自動化・<br />セキュリティ設計まで幅広く学習'
+            subtitle=""
+            items={advancedItems}
+            gradient="linear-gradient(135deg, #FC4A1A 0%, #FFAC00 100%)"
+            accentColor="#F28130"
+          />
+        </div>
+        
+        {/* 装飾画像 */}
+        <div className="flex justify-center mt-4">
+          <img 
+            src="/curriculum/Group 298.png" 
+            alt="装飾" 
+            className="w-20 h-20 md:w-20 md:h-20"
+          />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Curriculum

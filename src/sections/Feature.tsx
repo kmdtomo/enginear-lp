@@ -3,11 +3,11 @@ import FeatureCard from '../components/FeatureCard'
 
 const Feature: React.FC = () => {
   return (
-    <section className="relative -mt-20 md:-mt-28 z-10">
+    <section className="relative -mt-20 md:-mt-20 z-10">
       {/* 円形の背景 */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-x-0 -top-10 -bottom-10 md:-bottom-20 pointer-events-none">
         <div 
-          className="absolute w-[200%] h-[120%] left-1/2 -translate-x-1/2 top-0"
+          className="absolute w-[200%] h-[calc(100%+80px)] left-1/2 -translate-x-1/2 top-0"
           style={{ 
             background: 'linear-gradient(180deg, #0575E6 0%, #021B79 100%)',
             borderRadius: '50% 50% 50% 50% / 15% 15% 15% 15%'
@@ -16,7 +16,7 @@ const Feature: React.FC = () => {
       </div>
       
       {/* コンテンツ */}
-      <div className="relative z-10 pt-32 pb-20">
+      <div className="relative z-10 pt-16">
         <div className="max-w-7xl mx-auto px-4">
           {/* 装飾ライン */}
           <div className="flex justify-center mb-8">
