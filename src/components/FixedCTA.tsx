@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useSmoothScroll } from '../hooks/useSmoothScroll'
 
 const FixedCTA: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true)
   const [hasIntroShown, setHasIntroShown] = useState(false)
-  const { handleSmoothScroll } = useSmoothScroll()
   const ctaRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -61,7 +59,7 @@ const FixedCTA: React.FC = () => {
   return (
     <div 
       ref={ctaRef}
-      className="fixed bottom-0 md:left-20 md:right-20 left-4 right-4 z-50 text-white md:py-5 py-5 rounded-t-lg transition-all duration-300"
+      className="fixed bottom-0 md:left-20 md:right-20 left-0 right-0 sm:left-4 sm:right-4 z-50 text-white py-4 sm:py-5 md:py-5 sm:rounded-t-lg md:rounded-t-lg transition-all duration-300"
       style={{ 
         background: 'linear-gradient(135deg, rgba(5,117,230,0.9) 0%, rgba(2,27,121,0.9) 100%)',
         transform: isVisible && hasIntroShown ? 'translateY(0)' : 'translateY(100%)',
@@ -77,16 +75,17 @@ const FixedCTA: React.FC = () => {
           <p className="md:text-3xl text-xl font-bold" style={{ letterSpacing: '0.08em' }}>70%OFFでモニター募集中！</p>
         </div>
         <a 
-          href="#contact" 
-          onClick={(e) => handleSmoothScroll(e, '#contact')}
-          className="inline-flex md:w-auto w-full md:justify-center justify-center items-center gap-3 bg-[#00C300] text-white rounded-full md:px-8 px-5 md:py-3 py-2 shadow md:text-lg text-base transform transition-all duration-150 hover:scale-95 active:scale-90"
+          href="https://step.lme.jp/landing-qr/2008018288-6lzxd9ez?uLand=l1YIlF" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex w-auto self-center whitespace-nowrap justify-center items-center gap-3 bg-[#00C300] text-white rounded-full px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3 shadow text-sm sm:text-base md:text-lg transform transition-all duration-150 hover:scale-95 active:scale-90"
         >
           <img src="/icons8-line (1).svg" alt="LINE" className="md:w-7 md:h-7 w-6 h-6" />
-          <span className="inline-flex items-baseline gap-0 md:tracking-widest tracking-wide">
-            <span className="md:text-xl text-lg font-bold">今すぐ無料相談</span>
-            <span className="font-medium md:text-sm text-xs">を予約する</span>
+          <span className="inline-flex items-baseline gap-0 tracking-wide sm:tracking-wider md:tracking-widest">
+            <span className="text-base sm:text-lg md:text-xl font-bold">今すぐ無料相談</span>
+            <span className="font-medium text-xs sm:text-xs md:text-sm">を予約する</span>
           </span>
-          <span className="md:text-base text-sm">▶</span>
+          <span className="text-sm sm:text-sm md:text-base">▶</span>
         </a>
       </div>
     </div>

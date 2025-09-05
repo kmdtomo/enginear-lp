@@ -28,20 +28,19 @@ const Roadmap: React.FC = () => {
   ]
 
   return (
-    <section className="relative bg-[#F5F6FC] py-12 md:py-20 overflow-visible">
+    <section className="relative bg-[#F5F6FC] pt-12 md:py-20 overflow-visible">
       <div className="max-w-7xl mx-auto px-4 overflow-visible">
         {/* モバイル版レイアウト */}
         <div 
           ref={titleRef}
-          className={`slide-in-from-left ${isTitleInView ? 'in-view' : ''} md:hidden relative mb-12 flex flex-col items-center justify-center gap-3`}
+          className={`slide-in-from-left ${isTitleInView ? 'in-view' : ''} md:hidden relative mb-10 flex items-center justify-center gap-3`}
         >
-          <GradientRectangle className="w-32 h-6" />
-          <h2 className="text-2xl font-bold text-center px-2 leading-relaxed" style={{ letterSpacing: '0.1em' }}>
-            最短<span className="text-3xl mx-1" style={{ color: '#2911E2' }}>2ヶ月</span>で
-            <br />
-            即戦力クラウドエンジニアへ
+          <GradientRectangle className="w-20 h-5" />
+          <h2 className="text-base font-bold text-center leading-tight" style={{ letterSpacing: '0.02em' }}>
+            最短<span className="text-2xl mx-1" style={{ color: '#2911E2' }}>2ヶ月</span>で
+            <span className="block mt-1.5">即戦力クラウドエンジニアへ</span>
           </h2>
-          <GradientArrow className="w-32 h-6" />
+          <GradientArrow className="w-20 h-5" />
         </div>
 
         {/* PC版レイアウト */}
@@ -63,20 +62,19 @@ const Roadmap: React.FC = () => {
         {/* モバイル版: グリッド表示 */}
         <div 
           ref={cardsRef}
-          className="grid grid-cols-1 gap-8 md:hidden"
+          className="grid grid-cols-1 gap-12 md:hidden"
         >
           {steps.map((step, index) => (
             <div 
               key={step.number} 
-              className={`slide-in-from-left ${isCardsInView ? 'in-view' : ''} relative`}
+              className={`slide-in-from-left ${isCardsInView ? 'in-view' : ''} relative flex flex-col items-center`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               <div className="relative">
-                <div className="absolute -top-6 left-3 text-3xl font-bold z-10" style={{ color: '#2911E2' }}>
+                <div className="absolute -top-6 left-3 md:text-3xl text-4xl font-bold z-10" style={{ color: '#2911E2' }}>
                   {step.number}
                 </div>
-                
-                <div className="bg-white rounded-2xl overflow-hidden w-72">
+                <div className="bg-white rounded-2xl overflow-hidden w-72 mx-auto">
                   <div className="flex items-center justify-center p-3">
                     <div className="w-36 h-36">
                       {step.number === '01' && (

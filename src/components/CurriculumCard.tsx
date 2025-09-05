@@ -69,18 +69,18 @@ const CurriculumCard: React.FC<CurriculumCardProps> = ({
           </p>
         )}
         
-        {/* 項目リスト */}
-        <ul className={`space-y-3 max-w-sm md:pl-4 mx-auto ${type === '基礎学習' ? 'mt-8 md:mt-16' : 'md:mt-6'}`}>
+        {/* 項目リスト（SPでは非表示、PCのみ表示） */}
+        <ul className={`hidden md:block space-y-2 sm:space-y-3 md:space-y-3 max-w-sm px-6 sm:px-0 md:pl-4 mx-auto ${type === '基礎学習' ? 'mt-6 sm:mt-8 md:mt-16' : 'mt-4 sm:mt-6 md:mt-6'}`}>
           {items.map((item, index) => (
-            <li key={index} className="flex items-center">
-              <span className="mr-2 text-[8px]" style={{ color: accentColor }}>●</span>
-              <span className="text-sm text-gray-700 font-medium" dangerouslySetInnerHTML={{ __html: item }} />
+            <li key={index} className="flex items-start sm:items-center">
+              <span className="mr-2 text-[8px] mt-1 sm:mt-0" style={{ color: accentColor }}>●</span>
+              <span className="text-xs sm:text-sm md:text-sm text-gray-700 font-medium" dangerouslySetInnerHTML={{ __html: item }} />
             </li>
           ))}
         </ul>
         
-        {/* プラスボタンとテキスト */}
-        <div className={`flex flex-col items-center ${type === '基礎学習' ? 'mt-10 md:mt-17' : 'mt-4'}`}>
+        {/* + ハンズオン実践（PCのみ表示。SPは非表示） */}
+        <div className={`hidden md:flex flex-col items-center ${type === '基礎学習' ? 'mt-10 md:mt-17' : 'mt-4'}`}>
           <span className="text-black text-3xl font-light mb-2">+</span>
           <span className="font-bold text-xl" style={{ color: accentColor }}>
             {buttonText}

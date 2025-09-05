@@ -13,13 +13,10 @@ const Parallelogram: React.FC<ParallelogramProps> = ({
 }) => {
   return (
     <>
-      {/* SP: clip-path方式（テキスト歪まない・中央揃え安定） */}
+      {/* SP: 傾きを強めて平行四辺形感を強化（帯 -16deg / 文字 +16deg） */}
       <div className={`relative inline-block md:hidden ${className || ''}`}>
-        <div
-          className={`${bgClassName} rounded opacity-90 px-4 py-2 flex items-center`}
-          style={{ clipPath: 'polygon(8% 0, 100% 0, 92% 100%, 0 100%)' }}
-        >
-          <div className="w-full flex items-center justify-start">{children}</div>
+        <div className={`${bgClassName} transform skew-x-[-16deg] rounded opacity-90 px-3 py-4 inline-block`}>
+          <div className="transform skew-x-[16deg] inline-block w-full text-center">{children}</div>
         </div>
       </div>
 
