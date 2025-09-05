@@ -5,8 +5,8 @@ const Flow: React.FC = () => {
   const { ref: titleRef, isInView: isTitleInView } = useScrollAnimation({ threshold: 0.3, rootMargin: '-50px' })
   const { ref: flowRef, isInView: isFlowInView } = useScrollAnimation({ threshold: 0.2, rootMargin: '-100px' })
   return (
-    <section id="flow" className="py-12 md:py-12" style={{ backgroundColor: '#F5F6FC' }}>
-      <div className="max-w-[1250px] mx-auto px-4">
+    <section id="flow" className="py-16 sm:py-12 md:py-12" style={{ backgroundColor: '#F5F6FC' }}>
+      <div className="max-w-[1250px] mx-auto px-6 sm:px-4 md:px-4">
         {/* タイトル */}
         <div ref={titleRef} className={`fade-in-up ${isTitleInView ? 'in-view' : ''} text-center mb-16`}>
           <h2 className="text-3xl md:text-4xl font-bold mb-2">
@@ -16,7 +16,7 @@ const Flow: React.FC = () => {
         </div>
         
         {/* フローステップ */}
-        <div ref={flowRef} className="grid md:grid-cols-4 gap-2 md:gap-4 w-full mx-auto">
+        <div ref={flowRef} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 sm:gap-6 md:gap-4 w-full mx-auto">
           {/* ステップ1 */}
           <div className={`stagger-item ${isFlowInView ? 'in-view' : ''} flex flex-col items-center`}>
             <div className="relative">
@@ -25,22 +25,22 @@ const Flow: React.FC = () => {
               </div>
               
               {/* 円形の外枠 */}
-              <div className="w-56 h-56 rounded-full border-4 flex items-center justify-center" style={{ borderColor: '#D8DFFF' }}>
+              <div className="w-52 h-52 sm:w-52 sm:h-52 md:w-56 md:h-56 rounded-full border-[6px] sm:border-4 md:border-4 flex items-center justify-center" style={{ borderColor: '#D8DFFF' }}>
                 {/* アイコン画像 */}
                 <img 
                   src="/flow/Search engines-amico.png" 
                   alt="無料相談申し込み" 
-                  className="w-44 h-44 object-contain"
+                  className="w-40 h-40 sm:w-40 sm:h-40 md:w-44 md:h-44 object-contain"
                 />
               </div>
             </div>
             
             {/* タイトルとボタン */}
-            <div className="mt-6 text-center">
+            <div className="mt-8 sm:mt-6 text-center">
               <h3 className="text-xl font-bold mb-4" style={{ color: '#2911E2', letterSpacing: '0.15rem' }}>
                 無料相談申し込み
               </h3>
-              <a href="#contact" className="inline-flex items-center gap-2 bg-[#00C300] text-white rounded-full px-6 py-2.5 shadow text-sm font-bold hover:opacity-90 transition-all hover:scale-95">
+              <a href="https://step.lme.jp/landing-qr/2008018288-6lzxd9ez?uLand=l1YIlF" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#00C300] text-white rounded-full px-5 sm:px-6 py-2.5 shadow text-xs sm:text-sm font-bold hover:opacity-90 transition-all hover:scale-95">
                 <span className="text-white" style={{ letterSpacing: '0.15rem' }}>無料相談を予約する</span>
               </a>
               <p className="mt-3 text-sm text-black">
@@ -57,18 +57,18 @@ const Flow: React.FC = () => {
               </div>
               
               {/* 円形の外枠 */}
-              <div className="w-56 h-56 rounded-full border-4 flex items-center justify-center" style={{ borderColor: '#D8DFFF' }}>
+              <div className="w-52 h-52 sm:w-52 sm:h-52 md:w-56 md:h-56 rounded-full border-[6px] sm:border-4 md:border-4 flex items-center justify-center" style={{ borderColor: '#D8DFFF' }}>
                 {/* アイコン画像 */}
                 <img 
                   src="/flow/Live collaboration-pana.png" 
                   alt="無料相談実施" 
-                  className="w-44 h-44 object-contain"
+                  className="w-40 h-40 sm:w-40 sm:h-40 md:w-44 md:h-44 object-contain"
                 />
               </div>
             </div>
             
             {/* タイトル */}
-            <div className="mt-6 text-center">
+            <div className="mt-8 sm:mt-6 text-center">
               <h3 className="text-xl font-bold mb-4" style={{ color: '#2911E2' }}>
                 無料相談実施
               </h3>
@@ -92,22 +92,22 @@ const Flow: React.FC = () => {
               </div>
               
               {/* 円形の外枠 */}
-              <div className="w-56 h-56 rounded-full border-4 flex items-center justify-center" style={{ borderColor: '#D8DFFF' }}>
+              <div className="w-52 h-52 sm:w-52 sm:h-52 md:w-56 md:h-56 rounded-full border-[6px] sm:border-4 md:border-4 flex items-center justify-center" style={{ borderColor: '#D8DFFF' }}>
                 {/* アイコン画像 */}
                 <img 
                   src="/flow/Work in progress-cuate.png" 
                   alt="受講申し込み" 
-                  className="w-44 h-44 object-contain"
+                  className="w-40 h-40 sm:w-40 sm:h-40 md:w-44 md:h-44 object-contain"
                 />
               </div>
             </div>
             
             {/* タイトルとボタン */}
-            <div className="mt-6 text-center">
+            <div className="mt-8 sm:mt-6 text-center">
               <h3 className="text-xl font-bold mb-4" style={{ color: '#2911E2', letterSpacing: '0.15rem' }}>
                 受講申し込み
               </h3>
-              <a href="#contact" className="inline-flex items-center gap-2 bg-[#00C300] text-white rounded-full px-6 py-2.5 shadow text-sm font-bold hover:opacity-90 transition-all hover:scale-95">
+              <a href="https://step.lme.jp/landing-qr/2008018288-6lzxd9ez?uLand=l1YIlF" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#00C300] text-white rounded-full px-5 sm:px-6 py-2.5 shadow text-xs sm:text-sm font-bold hover:opacity-90 transition-all hover:scale-95">
                 <span className="text-white" style={{ letterSpacing: '0.15rem' }}>コースに申し込む</span>
               </a>
               <p className="mt-3 text-sm text-black">
@@ -127,18 +127,18 @@ const Flow: React.FC = () => {
               </div>
               
               {/* 円形の外枠 */}
-              <div className="w-56 h-56 rounded-full border-4 flex items-center justify-center" style={{ borderColor: '#D8DFFF' }}>
+              <div className="w-52 h-52 sm:w-52 sm:h-52 md:w-56 md:h-56 rounded-full border-[6px] sm:border-4 md:border-4 flex items-center justify-center" style={{ borderColor: '#D8DFFF' }}>
                 {/* アイコン画像 */}
                 <img 
                   src="/flow/Programmer-rafiki (1).png" 
                   alt="受講開始" 
-                  className="w-44 h-44 object-contain"
+                  className="w-40 h-40 sm:w-40 sm:h-40 md:w-44 md:h-44 object-contain"
                 />
               </div>
             </div>
             
             {/* タイトル */}
-            <div className="mt-6 text-center">
+            <div className="mt-8 sm:mt-6 text-center">
               <h3 className="text-xl font-bold mb-4" style={{ color: '#2911E2', letterSpacing: '0.15rem' }}>
                 受講開始
               </h3>

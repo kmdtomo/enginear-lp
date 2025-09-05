@@ -19,9 +19,9 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, delay = 0 }) => {
       onClick={() => setIsOpen(!isOpen)}
     >
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <span className="font-bold text-xl" style={{ color: '#2911E2' }}>Q</span>
-          <p className="text-base font-medium text-black">{question}</p>
+        <div className="flex items-center gap-3 sm:gap-4 flex-1">
+          <span className="font-bold text-lg sm:text-xl" style={{ color: '#2911E2' }}>Q</span>
+          <p className="text-sm sm:text-base font-medium text-black">{question}</p>
         </div>
         <svg 
           className={`w-6 h-6 flex-shrink-0 ml-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
@@ -34,8 +34,8 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, delay = 0 }) => {
         </svg>
       </div>
       {isOpen && answer && (
-        <div className="mt-4 ml-10">
-          <p className="text-base text-black whitespace-pre-line leading-relaxed md:pr-20">
+        <div className="mt-4 ml-4 md:ml-10">
+          <p className="text-sm sm:text-base text-black whitespace-pre-line leading-relaxed pr-0 sm:pr-10 md:pr-20">
             <span className="font-medium">A：</span>{answer}
           </p>
         </div>

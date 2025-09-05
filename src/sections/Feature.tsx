@@ -7,8 +7,19 @@ const Feature: React.FC = () => {
   const { ref: textRef, isInView: isTextInView } = useScrollAnimation({ threshold: 0.2 })
   return (
     <section id="features" className="relative -mt-20 md:-mt-20 z-10">
-      {/* 円形の背景 */}
-      <div className="absolute inset-x-0 -top-10 -bottom-10 md:-bottom-20 pointer-events-none">
+      {/* 円形の背景（SPとPCで曲率を分岐） */}
+      {/* SP: もっと緩いカーブ */}
+      <div className="absolute inset-x-0 -top-2 -bottom-2 md:hidden pointer-events-none">
+        <div
+          className="absolute w-[260%] h-[calc(100%+60px)] left-1/2 -translate-x-1/2 top-0"
+          style={{
+            background: 'linear-gradient(180deg, #0575E6 0%, #021B79 100%)',
+            borderRadius: '50% 50% 50% 50% / 8% 8% 8% 8%'
+          }}
+        />
+      </div>
+      {/* PC: 既存の曲率 */}
+      <div className="absolute inset-x-0 -top-10 -bottom-10 hidden md:block md:-bottom-20 pointer-events-none">
         <div 
           className="absolute w-[200%] h-[calc(100%+80px)] left-1/2 -translate-x-1/2 top-0"
           style={{ 
@@ -20,7 +31,7 @@ const Feature: React.FC = () => {
       
       {/* コンテンツ */}
       <div className="relative z-10 pt-16">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-6 sm:px-4 md:px-4">
           {/* 装飾ライン */}
           <div className="flex justify-center mb-8">
             <img 
@@ -36,9 +47,9 @@ const Feature: React.FC = () => {
               ref={titleRef}
               className={`dynamic-bounce-up ${isTitleInView ? 'in-view' : ''} relative inline-block`}
             >
-              <div className="inline-flex items-center justify-center px-8 md:px-10 py-4 md:py-5 rounded-full" 
+              <div className="inline-flex items-center justify-center px-6 md:px-10 py-4 md:py-5 rounded-full" 
                    style={{ background: 'linear-gradient(135deg, #FC4A1A 0%, #FFAC00 100%)' }}>
-                <h2 className="text-white text-xl md:text-3xl font-bold" style={{ letterSpacing: '0.2rem' }}>
+                <h2 className="text-white text-lg md:text-3xl font-bold" style={{ letterSpacing: '0.2rem' }}>
                   Enginearにお任せください！
                 </h2>
               </div>
@@ -50,18 +61,16 @@ const Feature: React.FC = () => {
             </div>
           </div>
           
-          {/* テキスト部分 */}
+          {/* テキスト部分（SPは2行に繋げる） */}
           <div ref={textRef} className={`dynamic-bounce-up ${isTextInView ? 'in-view' : ''} text-center mt-8 md:mt-12`}>
-            <p className="text-white text-base md:text-2xl font-bold" style={{ letterSpacing: '0.25rem' }}>
-              私たちは今本当に求められるクラウド人材を育てるために
-            </p>
-            <p className="text-white text-base md:text-2xl font-bold mt-6" style={{ letterSpacing: '0.25rem' }}>
-              <span className="text-2xl md:text-4xl font-bold" style={{ color: '#F5E537' }}>”教材で終わらない”</span>学びにこだわりました。
+            <p className="text-white text-sm md:text-2xl font-bold" style={{ letterSpacing: '0.25rem' }}>
+              私たちは今本当に求められるクラウド人材を育てるために<br />
+              <span className="text-xl md:text-4xl font-bold" style={{ color: '#F5E537' }}>”教材で終わらない”</span>学びにこだわりました。
             </p>
           </div>
           
           {/* Featureカード */}
-          <div className="mt-12 md:mt-20 max-w-4xl mx-auto space-y-6">
+          <div className="mt-12 sm:mt-16 md:mt-20 max-w-4xl mx-auto space-y-4 sm:space-y-6 md:space-y-6">
             <FeatureCard
               number="01"
               title='映像授業で、まず”理解”'

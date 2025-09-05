@@ -32,8 +32,8 @@ const FAQ: React.FC = () => {
   ]
 
   return (
-    <section id="faq" className="py-12 md:py-12" style={{ backgroundColor: '#F5F6FC' }}>
-      <div className="max-w-4xl mx-auto px-4">
+    <section id="faq" className="py-16 sm:py-12 md:py-12" style={{ backgroundColor: '#F5F6FC' }}>
+      <div className="max-w-4xl mx-auto px-6 sm:px-4 md:px-4">
         {/* タイトル */}
         <div 
           ref={titleRef}

@@ -28,18 +28,18 @@ const Demand: React.FC = () => {
   ]
 
   return (
-    <section className="relative bg-[#F5F6FC] py-12 md:pb-20 pt-10">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="relative bg-[#F5F6FC] pt-16 sm:py-12 md:pb-20 md:pt-10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-4 md:px-4">
         {/* 見出し部分 */}
-        <div className="mb-12 md:mb-16 text-center">
+        <div className="mb-6 md:mb-16 text-center">
           {/* グラデーション背景の見出し - 縦並び */}
           <div ref={titleRef} className="flex flex-col items-center gap-6">
-            <div className={`fade-in-up ${isTitleInView ? 'in-view' : ''} bg-[linear-gradient(135deg,_#0575E6_0%,_#021B79_100%)] px-6 py-3 md:px-5 md:py-3`}>
-              <h2 className="text-xl md:text-xl font-medium text-white" style={{ letterSpacing: '0.2em' }}>
+            <div className={`fade-in-up ${isTitleInView ? 'in-view' : ''} bg-[linear-gradient(135deg,_#0575E6_0%,_#021B79_100%)] px-4 py-3 md:px-5 md:py-3`}>
+              <h2 className="text-xl md:text-xl md:font-medium font-bold text-white" style={{ letterSpacing: '0.2em' }}>
                 クラウド移行の加速によって
               </h2>
             </div>
-            <div className={`fade-in-up ${isTitleInView ? 'in-view' : ''} bg-[linear-gradient(135deg,_#0575E6_0%,_#021B79_100%)] px-6 py-3 md:px-6 md:py-3 delay-200`}>
+            <div className={`fade-in-up ${isTitleInView ? 'in-view' : ''} bg-[linear-gradient(135deg,_#0575E6_0%,_#021B79_100%)] px-4 py-3 md:px-6 md:py-3 delay-200`}>
               <h2 className="text-xl md:text-2xl font-bold text-white" style={{ letterSpacing: '0.2em' }}>
                 AWSエンジニアの需要が急増中
               </h2>
@@ -48,26 +48,26 @@ const Demand: React.FC = () => {
         </div>
 
         {/* 統計部分 - モバイル版 */}
-        <div ref={mobileStatsRef} className="md:hidden space-y-8">
+        <div ref={mobileStatsRef} className="md:hidden space-y-1 md:space-y-8">
           {stats.map((stat, index) => (
-            <div key={index} className={`fade-in-up ${isMobileStatsInView ? 'in-view' : ''} text-left`} style={{ transitionDelay: `${index * 200}ms` }}>
-              <p className="text-sm font-medium mb-2" style={{ color: '#2911E2' }}>
+            <div key={index} className={`fade-in-up ${isMobileStatsInView ? 'in-view' : ''} text-left rounded-lg p-6 sm:p-5`} style={{ transitionDelay: `${index * 200}ms` }}>
+              <p className="text-lg sm:text-sm font-bold mb-3 sm:mb-2" style={{ color: '#2911E2' }}>
                 {stat.label}
               </p>
-              <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold" style={{ color: '#2911E2' }}>
+              <div className="flex items-baseline gap-2 mb-3">
+                <span className="text-6xl sm:text-4xl font-extrabold" style={{ color: '#2911E2' }}>
                   {stat.value}
                 </span>
-                <span className="text-2xl" style={{ color: '#2911E2' }}>
+                <span className="text-3xl sm:text-xl font-bold md:font-medium" style={{ color: '#2911E2' }}>
                   {stat.unit}
                 </span>
                 {stat.suffix && (
-                  <span className="text-lg" style={{ color: '#2911E2' }}>
+                  <span className="text-xl sm:text-lg" style={{ color: '#2911E2' }}>
                     {stat.suffix}
                   </span>
                 )}
               </div>
-              <p className="text-sm text-gray-700 mt-2 leading-relaxed">
+              <p className="text-sm text-gray-700 leading-relaxed">
                 {stat.description}
               </p>
             </div>
@@ -75,7 +75,7 @@ const Demand: React.FC = () => {
         </div>
 
         {/* 統計部分 - PC版 */}
-        <div ref={statsRef} className="hidden md:flex md:items-start md:justify-center md:gap-12">
+        <div ref={statsRef} className="hidden md:flex items-start justify-center gap-12">
           {/* 求人倍率 */}
           <div className={`scale-in ${isStatsInView ? 'in-view' : ''} text-left`}>
             <p className="text-lg font-medium mb-3" style={{ color: '#2911E2' }}>
