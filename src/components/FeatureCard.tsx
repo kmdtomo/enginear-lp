@@ -47,7 +47,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
             </div>
             
             {/* タイトル */}
-            <h3 className="text-xl sm:text-xl md:text-3xl font-bold text-black pt-2 sm:pt-4 md:pt-4 pb-1 sm:pb-2 md:pb-2 tracking-[0.02em]">
+            <h3 className="text-lg sm:text-xl md:text-3xl font-bold text-black pt-2 sm:pt-4 md:pt-4 pb-1 sm:pb-2 md:pb-2 md:tracking-[0.02em]">
               {title}
             </h3>
             

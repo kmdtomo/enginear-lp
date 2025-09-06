@@ -11,7 +11,7 @@ const Challenge: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-4 md:px-4">
         {/* タイトル部分 */}
         <div className="text-center mb-10 md:mb-12">
-          <h2 className="text-lg md:text-3xl font-bold mb-4 text-black" style={{ letterSpacing: '0.1rem' }}>
+          <h2 className="text-base md:text-3xl font-bold mb-4 text-black" style={{ letterSpacing: '0.1rem' }}>
             未経験から<span className="relative inline-block" style={{ color: '#2911E2' }}>
               <span className="absolute -top-2 md:-top-3 left-[12.5%] -translate-x-1/2 md:w-2 md:h-2 rounded-full" style={{ backgroundColor: '#2911E2', width: '6px', height: '6px' }}></span>
               <span className="absolute -top-2 md:-top-3 left-[37.5%] -translate-x-1/2 md:w-2 md:h-2 rounded-full" style={{ backgroundColor: '#2911E2', width: '6px', height: '6px' }}></span>
@@ -20,7 +20,7 @@ const Challenge: React.FC = () => {
               クラウド
             </span>ってそんなに甘くない
           </h2>
-          <p className="text-lg md:text-2xl text-black font-bold" style={{ letterSpacing: '0.15rem' }}>
+          <p className="text-base md:text-2xl text-black font-bold" style={{ letterSpacing: '0.15rem' }}>
             そう思っていませんか？
           </p>
         </div>

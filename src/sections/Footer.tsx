@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
           {/* 左カラム */}
           <div className="flex flex-col justify-center text-left">
             <p 
-              className="text-base sm:text-lg md:text-lg font-bold leading-relaxed mb-4 sm:mb-5 md:mb-6"
+              className="text-sm sm:text-lg md:text-lg font-bold leading-relaxed mb-4 sm:mb-5 md:mb-6"
               style={{ letterSpacing: '0.1em' }}
             >
               まずは一度、無料相談でお気軽にご相談ください。
