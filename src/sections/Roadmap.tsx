@@ -4,8 +4,10 @@ import GradientArrow from '../components/GradientArrow'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const Roadmap: React.FC = () => {
-  const { ref: titleRef, isInView: isTitleInView } = useScrollAnimation({ threshold: 0.2 })
-  const { ref: cardsRef, isInView: isCardsInView } = useScrollAnimation({ threshold: 0.1 })
+  const { ref: mobileTitleRef, isInView: isMobileTitleInView } = useScrollAnimation({ threshold: 0.2 })
+  const { ref: pcTitleRef, isInView: isPcTitleInView } = useScrollAnimation({ threshold: 0.2 })
+  const { ref: mobileCardsRef, isInView: isMobileCardsInView } = useScrollAnimation({ threshold: 0.1 })
+  const { ref: pcCardsRef, isInView: isPcCardsInView } = useScrollAnimation({ threshold: 0.1 })
   const steps = [
     {
       number: '01',
@@ -28,12 +30,12 @@ const Roadmap: React.FC = () => {
   ]
 
   return (
-    <section className="relative bg-[#F5F6FC] pt-12 md:py-20 overflow-visible">
-      <div className="max-w-7xl mx-auto px-4 overflow-visible">
+    <section className="relative bg-[#F5F6FC] pt-12 md:py-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4">
         {/* モバイル版レイアウト */}
         <div 
-          ref={titleRef}
-          className={`slide-in-from-left ${isTitleInView ? 'in-view' : ''} md:hidden relative mb-12 md:mb-10 flex items-center justify-center gap-3`}
+          ref={mobileTitleRef}
+          className={`fade-in-up ${isMobileTitleInView ? 'in-view' : ''} md:hidden relative mb-12 md:mb-10 flex items-center justify-center gap-3`}
         >
           <GradientRectangle className="w-14 h-5" />
           <h2 className="text-base font-bold text-center leading-tight" style={{ letterSpacing: '0.02em' }}>
@@ -46,8 +48,8 @@ const Roadmap: React.FC = () => {
         {/* PC版レイアウト */}
         <div className="hidden md:block relative mb-16 pb-4">
           <div 
-            ref={titleRef}
-            className={`slide-in-from-left ${isTitleInView ? 'in-view' : ''} flex items-center justify-center gap-5 w-full max-w-6xl mx-auto`}
+            ref={pcTitleRef}
+            className={`slide-in-from-left ${isPcTitleInView ? 'in-view' : ''} flex items-center justify-center gap-5 w-full max-w-6xl mx-auto`}
           >
             <GradientRectangle className="w-72 h-10 flex-shrink-0" />
             <h2 className="text-3xl font-bold text-center px-4 leading-relaxed" style={{ letterSpacing: '0.2em' }}>
@@ -61,13 +63,13 @@ const Roadmap: React.FC = () => {
 
         {/* モバイル版: グリッド表示 */}
         <div 
-          ref={cardsRef}
+          ref={mobileCardsRef}
           className="grid grid-cols-1 gap-12 md:hidden"
         >
           {steps.map((step, index) => (
             <div 
               key={step.number} 
-              className={`slide-in-from-left ${isCardsInView ? 'in-view' : ''} relative flex flex-col items-center`}
+              className={`fade-in-up ${isMobileCardsInView ? 'in-view' : ''} relative flex flex-col items-center`}
               style={{ transitionDelay: `${index * 200}ms` }}
             >
               <div className="relative">
@@ -118,13 +120,13 @@ const Roadmap: React.FC = () => {
 
         {/* PC版: フレックス表示（カード + × + カード + × + カード） */}
         <div 
-          ref={cardsRef}
+          ref={pcCardsRef}
           className="hidden md:flex items-start justify-between gap-2 w-full max-w-6xl mx-auto"
         >
           {steps.map((step, index) => (
             <React.Fragment key={step.number}>
               <div 
-                className={`slide-in-from-left ${isCardsInView ? 'in-view' : ''} relative`}
+                className={`slide-in-from-left ${isPcCardsInView ? 'in-view' : ''} relative`}
                 style={{ transitionDelay: `${index * 300}ms` }}
               >
                 <div className="relative">
@@ -174,7 +176,7 @@ const Roadmap: React.FC = () => {
               
               {index < steps.length - 1 && (
                 <div 
-                  className={`slide-in-from-left ${isCardsInView ? 'in-view' : ''} flex items-center h-64 text-3xl text-black`}
+                  className={`slide-in-from-left ${isPcCardsInView ? 'in-view' : ''} flex items-center h-64 text-3xl text-black`}
                   style={{ transitionDelay: `${(index * 300) + 150}ms` }}
                 >
                   ×
