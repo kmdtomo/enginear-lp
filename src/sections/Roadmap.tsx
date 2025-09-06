@@ -33,14 +33,14 @@ const Roadmap: React.FC = () => {
         {/* モバイル版レイアウト */}
         <div 
           ref={titleRef}
-          className={`slide-in-from-left ${isTitleInView ? 'in-view' : ''} md:hidden relative mb-10 flex items-center justify-center gap-3`}
+          className={`slide-in-from-left ${isTitleInView ? 'in-view' : ''} md:hidden relative mb-12 md:mb-10 flex items-center justify-center gap-3`}
         >
-          <GradientRectangle className="w-20 h-5" />
+          <GradientRectangle className="w-14 h-5" />
           <h2 className="text-base font-bold text-center leading-tight" style={{ letterSpacing: '0.02em' }}>
             最短<span className="text-2xl mx-1" style={{ color: '#2911E2' }}>2ヶ月</span>で
             <span className="block mt-1.5">即戦力クラウドエンジニアへ</span>
           </h2>
-          <GradientArrow className="w-20 h-5" />
+          <GradientArrow className="w-14 h-5" />
         </div>
 
         {/* PC版レイアウト */}
@@ -104,7 +104,7 @@ const Roadmap: React.FC = () => {
               </div>
 
               <div className="px-2 mt-6 text-center">
-                <h3 className="text-lg font-bold mb-2 bg-[linear-gradient(135deg,_#0575E6_0%,_#021B79_100%)] bg-clip-text text-transparen">
+                <h3 className="text-lg font-bold mb-2 bg-[linear-gradient(135deg,_#0575E6_0%,_#021B79_100%)] bg-clip-text text-transparent">
                   {step.title}
                 </h3>
                 

@@ -49,7 +49,7 @@ const Feature: React.FC = () => {
             >
               <div className="inline-flex items-center justify-center px-6 md:px-10 py-4 md:py-5 rounded-full" 
                    style={{ background: 'linear-gradient(135deg, #FC4A1A 0%, #FFAC00 100%)' }}>
-                <h2 className="text-white text-lg md:text-3xl font-bold" style={{ letterSpacing: '0.2rem' }}>
+                <h2 className="text-white text-base md:text-3xl font-bold" style={{ letterSpacing: '0.2rem' }}>
                   Enginearにお任せください！
                 </h2>
               </div>
@@ -65,7 +65,7 @@ const Feature: React.FC = () => {
           <div ref={textRef} className={`dynamic-bounce-up ${isTextInView ? 'in-view' : ''} text-center mt-8 md:mt-12`}>
             <p className="text-white text-sm md:text-2xl font-bold" style={{ letterSpacing: '0.25rem' }}>
               私たちは今本当に求められるクラウド人材を育てるために<br />
-              <span className="text-xl md:text-4xl font-bold" style={{ color: '#F5E537' }}>”教材で終わらない”</span>学びにこだわりました。
+              <span className="text-lg md:text-4xl font-bold" style={{ color: '#F5E537' }}>”教材で終わらない”</span>学びにこだわりました。
             </p>
           </div>
           

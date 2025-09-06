@@ -22,12 +22,12 @@ const Portfolio: React.FC = () => {
           {/* SP: 二段のグラデ見出し（Demandと同じサイズ・角・余白） */}
           <div className="md:hidden flex flex-col items-center gap-6">
             <div className="bg-[linear-gradient(135deg,_#5433FF_0%,_#0575E6_100%)] px-4 py-3 md:px-5 md:py-3">
-              <h2 className="text-white text-lg font-bold" style={{ letterSpacing: '0.1em' }}>
+              <h2 className="text-white text-base md:text-lg font-bold" style={{ letterSpacing: '0.1em' }}>
                 SAAの資格取得と自分の”手で
               </h2>
             </div>
             <div className="bg-[linear-gradient(135deg,_#5433FF_0%,_#0575E6_100%)] px-4 py-3 md:px-6 md:py-3">
-              <h2 className="text-white text-lg font-bold" style={{ letterSpacing: '0.1em' }}>
+              <h2 className="text-white text-base md:text-lg font-bold" style={{ letterSpacing: '0.1em' }}>
                 作った証拠”を武器に <span className="text-yellow">キャリアを加速</span>
               </h2>
             </div>
@@ -41,7 +41,7 @@ const Portfolio: React.FC = () => {
             <div className="flex flex-col md:flex-row items-center">
               {/* 左側：テキストコンテンツ */}
               <div className="w-full md:w-1/2 pt-4 sm:pt-6 md:pt-8 order-2 md:order-1">
-                <h3 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-5 md:mb-5" style={{ letterSpacing: '0.15rem' }}>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-5 md:mb-5" style={{ letterSpacing: '0.15rem' }}>
                   実務レベルの<span style={{ color: '#2911E2' }}>”模擬案件”</span>に参加
                 </h3>
                 <div 
@@ -81,7 +81,7 @@ const Portfolio: React.FC = () => {
               
               {/* 右側：テキストコンテンツ */}
               <div className="w-full md:w-2/3 pt-4 sm:pt-6 md:pt-8 md:pl-8">
-                <h3 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-5 md:mb-5" style={{ letterSpacing: '0.15rem' }}>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-5 md:mb-5" style={{ letterSpacing: '0.15rem' }}>
                   <span style={{ color: '#2911E2' }}>SAA</span>の取得と<span style={{ color: '#2911E2' }}>ポートフォリオ作成</span>
                 </h3>
                 <div 
@@ -91,15 +91,15 @@ const Portfolio: React.FC = () => {
                 <div ref={listRef}>
                   <ul className="space-y-2 sm:space-y-3 md:space-y-3 text-gray-700 text-sm sm:text-base md:text-base">
                     <li className={`fade-in-up ${isListInView ? 'in-view' : ''} flex items-center delay-100`}>
-                      <span className="mr-2 text-[10px]" style={{ color: '#2911E2' }}>●</span>
+                      <span className="mr-2 md:text-[10px] text-[7px]" style={{ color: '#2911E2' }}>●</span>
                       <span>AWS認定 SAA 試験対策講座</span>
                     </li>
                     <li className={`fade-in-up ${isListInView ? 'in-view' : ''} flex items-center delay-200`}>
-                      <span className="mr-2 text-[10px]" style={{ color: '#2911E2' }}>●</span>
+                      <span className="mr-2 md:text-[10px] text-[7px]" style={{ color: '#2911E2' }}>●</span>
                       <span>試験範囲の復習＋模擬試験</span>
                     </li>
                     <li className={`fade-in-up ${isListInView ? 'in-view' : ''} flex items-center delay-300`}>
-                      <span className="mr-2 text-[10px]" style={{ color: '#2911E2' }}>●</span>
+                      <span className="mr-2 md:text-[10px] text-[7px]" style={{ color: '#2911E2' }}>●</span>
                       <span>ポートフォリオ最終化（GitHub提出形式・面接用資料）</span>
                     </li>
                   </ul>

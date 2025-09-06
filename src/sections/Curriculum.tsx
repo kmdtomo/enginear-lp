@@ -25,12 +25,12 @@ const Curriculum: React.FC = () => {
     <section id="curriculum" className="pb-12 pt-30 sm:py-12 md:pt-20 md:mt-40 z-10" style={{ backgroundColor: '#F5F6FC' }}>
       <div className="max-w-6xl mx-auto px-6 sm:px-4 md:px-4">
         {/* タイトル */}
-        <h2 className="text-center text-2xl md:text-4xl font-bold  mb-14 md:mb-20">
+        <h2 className="text-center text-xl md:text-4xl font-bold  mb-14 md:mb-20">
           実践を重視した<span style={{ color: '#2911E2' }}>カリキュラム内容</span>
         </h2>
         
         {/* カリキュラムカード */}
-        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-20 max-w-5xl mx-auto md:py-8">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-8 md:gap-20 max-w-5xl mx-auto md:py-8">
           <CurriculumCard
             type="基礎学習"
             title='クラウドの<span style="color: #2911E2">”全体像”</span>を理解し、<br />インフラの基本を自分の手で操作'
@@ -42,7 +42,7 @@ const Curriculum: React.FC = () => {
           {/* 中央の + 記号（SP/PCともに表示） */}
           {/* SP表示 */}
           <div className="flex justify-center items-center col-span-1 my-1 block md:hidden">
-            <span className="text-5xl font-black text-black">+</span>
+            <span className="text-4xl font-bold text-black">+</span>
           </div>
           {/* PC表示（絶対配置でレイアウトに影響させない） */}
           <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">

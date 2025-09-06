@@ -60,7 +60,7 @@ const CurriculumCard: React.FC<CurriculumCardProps> = ({
         </div>
         
         {/* タイトル */}
-        <h3 className="text-center font-bold text-lg md:text-xl mb-2 text-gray-800" style={{ letterSpacing: '0.15rem', lineHeight: '1.6' }}>
+        <h3 className="text-center font-bold text-base md:text-xl mb-2 text-gray-800" style={{ letterSpacing: '0.15rem', lineHeight: '1.6' }}>
           <span dangerouslySetInnerHTML={{ __html: title }} />
         </h3>
         {subtitle && (

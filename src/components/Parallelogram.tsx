@@ -15,7 +15,7 @@ const Parallelogram: React.FC<ParallelogramProps> = ({
     <>
       {/* SP: 傾きを強めて平行四辺形感を強化（帯 -16deg / 文字 +16deg） */}
       <div className={`relative inline-block md:hidden ${className || ''}`}>
-        <div className={`${bgClassName} transform skew-x-[-16deg] rounded opacity-90 px-3 py-4 inline-block`}>
+        <div className={`${bgClassName} transform skew-x-[-16deg] rounded opacity-90 px-5 py-3 inline-block`}>
           <div className="transform skew-x-[16deg] inline-block w-full text-center">{children}</div>
         </div>
       </div>

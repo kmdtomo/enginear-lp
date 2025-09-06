@@ -35,12 +35,12 @@ const Demand: React.FC = () => {
           {/* グラデーション背景の見出し - 縦並び */}
           <div ref={titleRef} className="flex flex-col items-center gap-6">
             <div className={`fade-in-up ${isTitleInView ? 'in-view' : ''} bg-[linear-gradient(135deg,_#0575E6_0%,_#021B79_100%)] px-4 py-3 md:px-5 md:py-3`}>
-              <h2 className="text-xl md:text-xl md:font-medium font-bold text-white" style={{ letterSpacing: '0.2em' }}>
+              <h2 className="text-lg md:text-xl md:font-medium font-bold text-white" style={{ letterSpacing: '0.2em' }}>
                 クラウド移行の加速によって
               </h2>
             </div>
             <div className={`fade-in-up ${isTitleInView ? 'in-view' : ''} bg-[linear-gradient(135deg,_#0575E6_0%,_#021B79_100%)] px-4 py-3 md:px-6 md:py-3 delay-200`}>
-              <h2 className="text-xl md:text-2xl font-bold text-white" style={{ letterSpacing: '0.2em' }}>
+              <h2 className="text-lg md:text-2xl font-bold text-white" style={{ letterSpacing: '0.2em' }}>
                 AWSエンジニアの需要が急増中
               </h2>
             </div>
@@ -50,7 +50,7 @@ const Demand: React.FC = () => {
         {/* 統計部分 - モバイル版 */}
         <div ref={mobileStatsRef} className="md:hidden space-y-1 md:space-y-8">
           {stats.map((stat, index) => (
-            <div key={index} className={`fade-in-up ${isMobileStatsInView ? 'in-view' : ''} text-left rounded-lg p-6 sm:p-5`} style={{ transitionDelay: `${index * 200}ms` }}>
+            <div key={index} className={`fade-in-up ${isMobileStatsInView ? 'in-view' : ''} text-left rounded-lg p-2 sm:p-5`} style={{ transitionDelay: `${index * 200}ms` }}>
               <p className="text-lg sm:text-sm font-bold mb-3 sm:mb-2" style={{ color: '#2911E2' }}>
                 {stat.label}
               </p>
@@ -58,7 +58,7 @@ const Demand: React.FC = () => {
                 <span className="text-6xl sm:text-4xl font-extrabold" style={{ color: '#2911E2' }}>
                   {stat.value}
                 </span>
-                <span className="text-3xl sm:text-xl font-bold md:font-medium" style={{ color: '#2911E2' }}>
+                <span className="text-2xl sm:text-xl font-bold md:font-medium" style={{ color: '#2911E2' }}>
                   {stat.unit}
                 </span>
                 {stat.suffix && (

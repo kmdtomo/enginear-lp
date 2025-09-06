@@ -40,13 +40,13 @@ const Price: React.FC = () => {
                 {/* 左側 - 70% OFF と元価格 */}
                 <div>
                   {/* 70% OFF 矢印 */}
-                  <OrangeArrow className="w-22 h-8 mb-2 text-sm">
+                  <OrangeArrow className="md:w-22 w-22 h-8 mb-2 md:text-sm text-xs">
                     70% OFF
                   </OrangeArrow>
                   
                   <div>
                     <p className="text-sm font-medium text-black">受講料金</p>
-                    <p className="text-xl sm:text-2xl md:text-2xl text-black">
+                    <p className="text-lg sm:text-2xl md:text-2xl text-black">
                       <span className="line-through">¥338,000</span><span className="text-xs">(税込)</span>
                     </p>
                   </div>
@@ -54,7 +54,7 @@ const Price: React.FC = () => {
                 
                 {/* 右側 - 現在価格 */}
                 <div className="text-left ml-4">
-                  <p className="text-5xl sm:text-6xl md:text-7xl font-bold text-black">
+                  <p className="text-4xl sm:text-6xl md:text-7xl font-bold text-black">
                     ¥98,000<span className="text-xs sm:text-base font-normal">(税込)</span>
                   </p>
                 </div>
@@ -66,8 +66,8 @@ const Price: React.FC = () => {
                   <div className="flex items-center gap-8">
                     <p className="text-base text-black flex-shrink-0 w-24">受講期間</p>
                     <div className="text-left">
-                      <p className="text-lg font-bold text-black">60日間</p>
-                      <p className="text-lg font-normal text-black">
+                      <p className="text-base md:text-lg font-bold text-black">60日間</p>
+                      <p className="text-sm md:text-lg font-normal text-black">
                         (学習コンテンツは<span className="font-bold" style={{ color: '#2911E2', textDecoration: 'underline', textDecorationColor: '#2911E2' }}>永年無料</span>で見放題)
                       </p>
                     </div>
@@ -77,7 +77,7 @@ const Price: React.FC = () => {
                 <div className="border-t border-black pt-4 pb-4 border-b flex justify-center">
                   <div className="flex items-center gap-8">
                     <p className="text-base text-black flex-shrink-0 w-24">支払い方法</p>
-                    <p className="text-lg font-bold text-black">
+                    <p className="text-base md:text-lg font-bold text-black">
                       クレジットカード（分割可）/ 銀行振込
                     </p>
                   </div>

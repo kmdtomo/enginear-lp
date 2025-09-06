@@ -56,9 +56,11 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
 
     observer.observe(element)
 
-    // 3) リサイズ時・ロード時にも再判定
+    // 3) スクロール/リサイズ/ロード時にも再判定（SPでの発火漏れ対策）
+    const onScroll = () => revealIfInViewport()
     const onResize = () => revealIfInViewport()
     window.addEventListener('load', revealIfInViewport)
+    window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onResize)
 
     // 4) フォールバック：1.5秒後に強制表示（念のため）
@@ -67,6 +69,7 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
     return () => {
       observer.disconnect()
       window.removeEventListener('load', revealIfInViewport)
+      window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onResize)
       window.clearTimeout(fallback)
     }
