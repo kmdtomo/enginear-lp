@@ -3,7 +3,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const Flow: React.FC = () => {
   const { ref: titleRef, isInView: isTitleInView } = useScrollAnimation({ threshold: 0.3, rootMargin: '-50px' })
-  const { ref: flowRef, isInView: isFlowInView } = useScrollAnimation({ threshold: 0.2, rootMargin: '-100px' })
+  const { ref: flowRef, isInView: isFlowInView } = useScrollAnimation({ threshold: 0.1 })
   return (
     <section id="flow" className="py-16 sm:py-12 md:py-12" style={{ backgroundColor: '#F5F6FC' }}>
       <div className="max-w-[1250px] mx-auto px-6 sm:px-4 md:px-4">
