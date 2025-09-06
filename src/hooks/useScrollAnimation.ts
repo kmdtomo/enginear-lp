@@ -20,16 +20,8 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
     const element = ref.current
     if (!element) return
 
-    // 1) 直ちに可視域チェック（初期状態で隠れっぱなしを防ぐ）
-    const revealIfInViewport = () => {
-      const rect = element.getBoundingClientRect()
-      const viewportH = window.innerHeight || document.documentElement.clientHeight
-      if (rect.top <= viewportH - 40) {
-        setIsInView(true)
-      }
-    }
-
-    revealIfInViewport()
+    // 初期状態では表示しない（スクロールで発火させるため）
+    // モバイルデバイスの場合は初期チェックを行わない
 
     // 2) IntersectionObserver 非対応ブラウザ対策
     if (typeof window !== 'undefined' && !('IntersectionObserver' in window)) {
@@ -56,22 +48,8 @@ export const useScrollAnimation = (options: ScrollAnimationOptions = {}) => {
 
     observer.observe(element)
 
-    // 3) スクロール/リサイズ/ロード時にも再判定（SPでの発火漏れ対策）
-    const onScroll = () => revealIfInViewport()
-    const onResize = () => revealIfInViewport()
-    window.addEventListener('load', revealIfInViewport)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onResize)
-
-    // 4) フォールバック：1.5秒後に強制表示（念のため）
-    const fallback = window.setTimeout(() => setIsInView(true), 1500)
-
     return () => {
       observer.disconnect()
-      window.removeEventListener('load', revealIfInViewport)
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onResize)
-      window.clearTimeout(fallback)
     }
   }, [threshold, rootMargin, once])
 

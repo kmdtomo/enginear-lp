@@ -64,7 +64,8 @@ const Feature: React.FC = () => {
           {/* テキスト部分（SPは2行に繋げる） */}
           <div ref={textRef} className={`dynamic-bounce-up ${isTextInView ? 'in-view' : ''} text-center mt-8 md:mt-12`}>
             <p className="text-white text-sm md:text-2xl font-bold" style={{ letterSpacing: '0.25rem' }}>
-              私たちは今本当に求められるクラウド人材を育てるために<br />
+              <span className="md:block md:mb-4">私たちは今本当に求められるクラウド人材を育てるために</span>
+              <br className="md:hidden" />
               <span className="text-lg md:text-4xl font-bold" style={{ color: '#F5E537' }}>”教材で終わらない”</span>学びにこだわりました。
             </p>
           </div>
