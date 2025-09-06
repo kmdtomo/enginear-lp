@@ -48,7 +48,7 @@ const Demand: React.FC = () => {
         </div>
 
         {/* 統計部分 - モバイル版 */}
-        <div ref={mobileStatsRef} className="md:hidden space-y-1 md:space-y-8">
+        <div ref={mobileStatsRef} className="md:hidden space-y-6 md:space-y-8 pt-2 md:pt-0">
           {stats.map((stat, index) => (
             <div key={index} className={`fade-in-up ${isMobileStatsInView ? 'in-view' : ''} text-left rounded-lg p-2 sm:p-5`} style={{ transitionDelay: `${index * 200}ms` }}>
               <p className="text-lg sm:text-sm font-bold mb-3 sm:mb-2" style={{ color: '#2911E2' }}>
