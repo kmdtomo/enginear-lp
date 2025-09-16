@@ -13,9 +13,9 @@ const HeaderNav: React.FC<HeaderNavProps> = ({ showAnimation = true }) => {
       <div className="w-full max-w-7xl mx-auto px-4 py-4 flex items-center justify-between md:justify-end gap-6">
         {/* SP版のみロゴ表示 */}
         <div className="md:hidden">
-          <div className="bg-white/80 rounded px-3 py-2">
+          {/* <div className="bg-white/80 rounded px-3 py-2">
             <span className="text-[#303263] font-bold text-sm">ロゴ</span>
-          </div>
+          </div> */}
         </div>
         
         <nav aria-label="main" className="text-white hidden md:block">
