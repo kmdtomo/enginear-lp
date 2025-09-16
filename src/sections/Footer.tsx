@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         background: 'linear-gradient(135deg, #0575E6 0%, #021B79 100%)'
       }}
     >
-      <div className="max-w-5xl w-11/12 md:w-full mx-auto px-4 sm:px-6 md:px-16">
+      <div className="max-w-7xl w-11/12 md:w-full mx-auto px-4 sm:px-6 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0 items-center">
           {/* 左カラム */}
           <div className="flex flex-col justify-center text-left">
